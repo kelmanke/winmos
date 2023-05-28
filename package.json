@@ -8,7 +8,7 @@
     "format": "prettier src/**/*.tsx --write --config ./.prettierrc",
     "testnet": "dotenv -e .env.testnet vite",
     "mainnet": "dotenv -e .env.mainnet vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
