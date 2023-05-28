@@ -8,7 +8,7 @@ type Props = {
 const UserWinningsTable = ({ userWinnings }: Props) => {
   return (
     <>
-      {userWinnings.length > 0 ? (
+      {userWinnings?.length > 0 ? (
         <Table color='white' w='100%' bg='blackAlpha.800' borderRadius={8} boxShadow='0px 0px 10px #FF7F50'>
           <Thead>
             <Tr>
