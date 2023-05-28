@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: BUSL-only
+// SPDX-License-Identifier: LGPL-v3
 pragma solidity ^0.8.0;
 
 /// @dev Dec represents a fixed point decimal value. The value is stored as an integer, and the
