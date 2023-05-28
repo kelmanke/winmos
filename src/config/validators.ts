@@ -1,0 +1,1 @@
+export const validatorAddr = 'evmosvaloper10t6kyy4jncvnevmgq6q2ntcy90gse3yxa7x2p4'
