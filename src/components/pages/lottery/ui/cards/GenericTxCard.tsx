@@ -9,7 +9,7 @@ const GenericTxCard = (props: { txType: string }) => {
     useGenericCard(props.txType)
   const { undelegations } = useContractUndelegations()
   const limitReached = props.txType === 'Exit' && undelegations?.length === 7
-
+  
   return (
     <Flex color='white' px={5} py={3} flexDir='column'>
       <Flex justifyContent='space-between'>
@@ -53,7 +53,11 @@ const GenericTxCard = (props: { txType: string }) => {
             value={amount}
           />
           <InputRightElement h='100%' w='100px'>
-            <Button fontSize='20px' textColor='white' onClick={() => setAmount(accountBalance)}>
+            <Button fontSize='20px' textColor='white' isDisabled={accountBalance === "NaN"} onClick={() => {
+              let accBalance = Math.floor(+accountBalance);
+              let balanceParam =  accBalance.toString();
+              setAmount(balanceParam);
+              }}>
               Max
             </Button>
           </InputRightElement>
