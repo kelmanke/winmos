@@ -9,7 +9,7 @@ const AllWinnersTable = ({ allWinners }: Props) => {
   return (
     <>
       {allWinners?.length > 0 ? (
-        <Table zIndex={111} w='100%' bg='blackAlpha.800' borderRadius={8} boxShadow='0px 0px 10px #FF7F50'>
+        <Table zIndex={111} w='100%' bg='blackAlpha.800' borderRadius={8}>
           <Thead top={0}>
             <Tr>
               <Th color='white'>Round</Th>
