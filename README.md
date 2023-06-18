@@ -46,3 +46,7 @@ By mainnet we want to include additional features:
 - no loss dice game.
 - no loss coin price prediction game using Oracle service for real time prices.
 
+### Links to contracts
+
+- NoLossLottery: https://testnet.escan.live/address/0x55bf345e1a04e43e558db462e92f0cf8833214be
+- LotteryWinners: https://testnet.escan.live/address/0xcd02c29795f8995e14165ae4dd5f2aa9aeb4e28f

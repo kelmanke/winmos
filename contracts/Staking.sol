@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: LGPL-v3
+// SPDX-License-Identifier: BUSL-only
 pragma solidity ^0.8.0;
 
 import "./Types.sol";

@@ -32,7 +32,7 @@ export const Winners = () => {
           <Heading color='white' alignSelf='center' py={5}>
             All Winners
           </Heading>
-          <Box overflowY="auto" height={"75%"} boxShadow='0px 0px 10px #FF7F50'>
+          <Box overflowY = {allWinners?.length > 0 ? "auto" : "visible"} height={"55%"} boxShadow='0px 0px 10px #FF7F50'>
             <AllWinnersTable allWinners={allWinners} />
           </Box>
         </Flex>
@@ -40,7 +40,7 @@ export const Winners = () => {
           <Heading color='white' alignSelf='center' py={5}>
             Personal Winnings
           </Heading>
-          <Box overflowY="auto" height={"75%"} boxShadow='0px 0px 10px #FF7F50'>
+          <Box overflowY = {userWinnings?.length > 0 ? "auto" : "visible"} height={"55%"} boxShadow='0px 0px 10px #FF7F50'>
             <UserWinningsTable userWinnings={userWinnings} />
           </Box>
         </Flex>

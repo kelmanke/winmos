@@ -5,6 +5,7 @@ import "./Staking.sol";
 import "./Distribution.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 
 // Randomness Oracle interface
@@ -20,6 +21,7 @@ interface LotteryWinnersI {
 
 contract NoLossLottery is Ownable {
     using SafeMath for uint256;
+    using Strings for uint256;
 
     // ParticipantsDelegation tracks all the delegations for a participant address
     struct ParticipantDelegation {
@@ -207,7 +209,9 @@ contract NoLossLottery is Ownable {
     }
 
     function approveDistributionMsgs() public onlyOwner {
-        bool successDist = DISTRIBUTION_CONTRACT.approve(msg.sender, distributionMethods);
+        string[] memory allowedList = new string[](1);
+        allowedList[0] = Strings.toHexString(uint256(uint160(address(this))), 20);
+        bool successDist = DISTRIBUTION_CONTRACT.approve(address(this), distributionMethods, allowedList);
         require(successDist, "Distribution Approve failed");
     }
 
@@ -256,7 +260,7 @@ contract NoLossLottery is Ownable {
 
     // Approves the required Staking messages before the executing of a staking transaction.
     function _approveRequiredMsgs(uint256 _amount, string[] memory _stakingMethod) internal {
-        bool successStk = STAKING_CONTRACT.approve(msg.sender, _amount, _stakingMethod);
+        bool successStk = STAKING_CONTRACT.approve(address(this), _amount, _stakingMethod);
         require(successStk, "Staking Approve failed");
     }
 }
