@@ -8,7 +8,7 @@ export const Winners = () => {
   const { amountWon, userWinnings, withdrawWinnings, allWinners, waitTx } = useUserWinnings()
   
   return (
-    <Box as='section' height='100%' bg='black'>
+    <Box as='section' bg='black' minHeight="100vh">
       <Image src={nebula} className='overlay' />
       <TopNav />
       <Button
@@ -27,12 +27,16 @@ export const Winners = () => {
       >
         {!(amountWon > 0) ? 'Nothing to withdraw yet' : 'Withdraw Winnings'}
       </Button>
-      <SimpleGrid columns={2} spacing={10} px={5} mt={7}>
+      <SimpleGrid columns={2} spacing={10} px={5}>
         <Flex flexDir='column' zIndex={111} w='100%'>
           <Heading color='white' alignSelf='center' py={5}>
             All Winners
           </Heading>
-          <Box overflowY = {allWinners?.length > 5 ? "auto" : "visible"} height={"100%"} boxShadow='0px 0px 10px #FF7F50'>
+          <Box
+            maxHeight={`calc(100vh - 250px)`}
+            boxShadow='0px 0px 10px #FF7F50'
+            overflowY = {allWinners?.length > 0 ? "auto" : "hidden"}
+          >
             <AllWinnersTable allWinners={allWinners} />
           </Box>
         </Flex>
@@ -40,7 +44,11 @@ export const Winners = () => {
           <Heading color='white' alignSelf='center' py={5}>
             Personal Winnings
           </Heading>
-          <Box overflowY = {userWinnings?.length > 0 ? "auto" : "visible"} height={"55%"} boxShadow='0px 0px 10px #FF7F50'>
+          <Box
+            maxHeight={`calc(100vh - 250px)`}
+            boxShadow='0px 0px 10px #FF7F50'
+            overflowY={userWinnings?.length > 0 ? "auto" : "hidden"}
+          >
             <UserWinningsTable userWinnings={userWinnings} />
           </Box>
         </Flex>
